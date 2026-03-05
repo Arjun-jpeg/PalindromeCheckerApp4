@@ -1,21 +1,28 @@
 import java.util.*;
-class Uc6 {
-    public void comp() {
-        String input = "civic";
-        Queue<Character> q = new LinkedList();
-        Stack<Character> s = new Stack();
+class Uc7 {
+    public void que() {
+        String input = "refer";
+
+        Deque<Character> dq = new ArrayDeque<>();
+
+
         for (int i = 0; i < input.length(); i++) {
-            q.add(input.charAt(i));
-            s.push(input.charAt(i));
+            dq.add(input.charAt(i));
         }
 
         boolean palin = true;
-        for (int i = 0; i < input.length() / 2; i++) {
-            if (q.remove() != s.pop()) { //0th index 'm' is compared with stack pops last index(4th) 'm'
+
+
+        while (dq.size() > 1) {
+            char front = dq.removeFirst();
+            char rear = dq.removeLast();
+
+            if (front != rear) {
                 palin = false;
                 break;
             }
         }
+
         if (palin) {
             System.out.println("Palindrome verified: " + input);
         } else {
@@ -25,7 +32,7 @@ class Uc6 {
 }
 public class Main {
     public static void main(String[] args) {
-        Uc6 ob=new Uc6();
-        ob.comp();
+        Uc7 ob=new Uc7();
+        ob.que();
     }
 }
