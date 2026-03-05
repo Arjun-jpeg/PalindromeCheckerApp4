@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class Uc3 {
+class Uc4 {
     String name2;
     public void arraycheck(){
         Scanner input=new Scanner(System.in);
