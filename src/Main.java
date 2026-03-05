@@ -1,27 +1,22 @@
 import java.util.*;
-class Uc8 {
-    public void ll() {
+class Uc9 {
+    boolean check(String input, int start, int end) {
+
+        if (start >= end) {
+            return true;
+        }
+
+        if (input.charAt(start) != input.charAt(end)) {
+            return false;
+        }
+
+        return check(input, start + 1, end - 1);
+    }
+
+    public void rec() {
         String input = "refer";
 
-        LinkedList<Character> list = new LinkedList<>();
-
-
-        for (int i = 0; i < input.length(); i++) {
-            list.add(input.charAt(i));
-        }
-
-        boolean palin = true;
-
-
-        while (list.size() > 1) {
-            char front = list.removeFirst();
-            char rear = list.removeLast();
-
-            if (front != rear) {
-                palin = false;
-                break;
-            }
-        }
+        boolean palin = check(input, 0, input.length() - 1);
 
         if (palin) {
             System.out.println("Palindrome verified: " + input);
@@ -32,7 +27,7 @@ class Uc8 {
 }
 public class Main {
     public static void main(String[] args) {
-        Uc8 ob=new Uc8();
-        ob.ll();
+        Uc9 ob=new Uc9();
+        ob.rec();
     }
 }
