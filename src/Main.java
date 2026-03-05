@@ -1,29 +1,41 @@
 import java.util.Scanner;
-class Uc2 {
-    String name;
-    public boolean find(){
-        boolean palin=true;
+class Uc3 {
+    String beforerev;
+
+    public void reverse(){
+
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter the name of the palindrome you want to check: ");
-        name=input.nextLine();
-        for(int i=0;i<name.length()/2;i++){
-            if(name.charAt(i)!=name.charAt(name.length()-i-1)) {
-                palin=false;
-                break;
+
+        System.out.println("Enter a palindrome string to reverse it and verify: ");
+
+        beforerev=input.nextLine();
+        for(int i=beforerev.length()-1;i>=0;i--){
+            afterrev=afterrev+beforerev.charAt(i);
+        }
+        if(afterrev.equals(beforerev)){
+
+            beforerev = input.nextLine();
+
+            StringBuilder afterrev = new StringBuilder();
+
+            for(int i = beforerev.length() - 1; i >= 0; i--){
+                afterrev.append(beforerev.charAt(i));
+            }
+
+            if(afterrev.toString().equals(beforerev)){
+
+                System.out.println("Palindrome verified");
+                System.out.println("Before: " + beforerev);
+                System.out.println("After reverse: " + afterrev);
+            }
+            else{
+                System.out.println("Palindrome not verified, before cannot be equal to after");
             }
         }
-        if(palin){
-            System.out.println("It is a Palindrome " +name);
-        }
-        else{
-            System.out.println("Not a Palindrome " +name);
-        }
-        return palin;
-    }
 }
 public class Main {
     public static void main(String[] args) {
-        Uc2 ob=new Uc2();
-        ob.find();
+        Uc3 ob=new Uc3();
+        ob.reverse();
     }
 }
