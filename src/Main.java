@@ -1,22 +1,17 @@
 import java.util.*;
-class Uc9 {
-    boolean check(String input, int start, int end) {
+class Uc10 {
 
-        if (start >= end) {
-            return true;
+    public void space() {
+        String input = "Re fer";
+        boolean palin = true;
+
+        input = input.replaceAll("\\s", "").toLowerCase();
+        for(int i=0;i<input.length()/2;i++){
+            if(input.charAt(i)!=input.charAt(input.length()-i-1)) {
+                palin=false;
+                break;
+            }
         }
-
-        if (input.charAt(start) != input.charAt(end)) {
-            return false;
-        }
-
-        return check(input, start + 1, end - 1);
-    }
-
-    public void rec() {
-        String input = "refer";
-
-        boolean palin = check(input, 0, input.length() - 1);
 
         if (palin) {
             System.out.println("Palindrome verified: " + input);
@@ -27,7 +22,7 @@ class Uc9 {
 }
 public class Main {
     public static void main(String[] args) {
-        Uc9 ob=new Uc9();
-        ob.rec();
+        Uc10 ob=new Uc10();
+        ob.space();
     }
 }
