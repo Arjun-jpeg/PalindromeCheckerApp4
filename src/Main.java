@@ -1,21 +1,21 @@
 import java.util.*;
-class Uc7 {
-    public void que() {
+class Uc8 {
+    public void ll() {
         String input = "refer";
 
-        Deque<Character> dq = new ArrayDeque<>();
+        LinkedList<Character> list = new LinkedList<>();
 
 
         for (int i = 0; i < input.length(); i++) {
-            dq.add(input.charAt(i));
+            list.add(input.charAt(i));
         }
 
         boolean palin = true;
 
 
-        while (dq.size() > 1) {
-            char front = dq.removeFirst();
-            char rear = dq.removeLast();
+        while (list.size() > 1) {
+            char front = list.removeFirst();
+            char rear = list.removeLast();
 
             if (front != rear) {
                 palin = false;
@@ -32,7 +32,7 @@ class Uc7 {
 }
 public class Main {
     public static void main(String[] args) {
-        Uc7 ob=new Uc7();
-        ob.que();
+        Uc8 ob=new Uc8();
+        ob.ll();
     }
 }
